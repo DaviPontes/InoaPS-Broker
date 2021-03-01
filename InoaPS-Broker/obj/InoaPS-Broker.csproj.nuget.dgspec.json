@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/davi/Documents/InoaPS-Broker/InoaPS-Broker.csproj": {}
+    "/home/davi/Documents/InoaPS-Broker/InoaPS-Broker/InoaPS-Broker.csproj": {}
   },
   "projects": {
-    "/home/davi/Documents/InoaPS-Broker/InoaPS-Broker.csproj": {
+    "/home/davi/Documents/InoaPS-Broker/InoaPS-Broker/InoaPS-Broker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/davi/Documents/InoaPS-Broker/InoaPS-Broker.csproj",
+        "projectUniqueName": "/home/davi/Documents/InoaPS-Broker/InoaPS-Broker/InoaPS-Broker.csproj",
         "projectName": "InoaPS-Broker",
-        "projectPath": "/home/davi/Documents/InoaPS-Broker/InoaPS-Broker.csproj",
+        "projectPath": "/home/davi/Documents/InoaPS-Broker/InoaPS-Broker/InoaPS-Broker.csproj",
         "packagesPath": "/home/davi/.nuget/packages/",
-        "outputPath": "/home/davi/Documents/InoaPS-Broker/obj/",
+        "outputPath": "/home/davi/Documents/InoaPS-Broker/InoaPS-Broker/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/davi/.nuget/NuGet/NuGet.Config"
