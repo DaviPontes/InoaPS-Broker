@@ -1,4 +1,7 @@
 ﻿using System;
+using System.IO;
+using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 
 namespace InoaPS_Broker
 {
@@ -6,7 +9,16 @@ namespace InoaPS_Broker
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            //IConfiguration config = new ConfigurationBuilder().AddJsonFile("appsettings.json", true, true).Build();
+
+            string path = "./appsettings.json";
+            var reader = new StreamReader(path);
+
+            dynamic result = Newtonsoft.Json.JsonConvert.DeserializeObject(reader.ReadToEnd());
+            
+            foreach(var email in result.emails){
+                Console.WriteLine(email);
+            }
         }
     }
 }
