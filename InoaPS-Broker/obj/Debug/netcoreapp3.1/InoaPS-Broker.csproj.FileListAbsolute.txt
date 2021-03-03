@@ -9,15 +9,5 @@
 /home/davi/Documents/InoaPS-Broker/InoaPS-Broker/obj/Debug/netcoreapp3.1/InoaPS-Broker.AssemblyInfo.cs
 /home/davi/Documents/InoaPS-Broker/InoaPS-Broker/obj/Debug/netcoreapp3.1/InoaPS-Broker.dll
 /home/davi/Documents/InoaPS-Broker/InoaPS-Broker/obj/Debug/netcoreapp3.1/InoaPS-Broker.pdb
-/home/davi/Documents/InoaPS-Broker/InoaPS-Broker/bin/Debug/netcoreapp3.1/appsettings.json
-/home/davi/Documents/InoaPS-Broker/InoaPS-Broker/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Configuration.dll
-/home/davi/Documents/InoaPS-Broker/InoaPS-Broker/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Configuration.Abstractions.dll
-/home/davi/Documents/InoaPS-Broker/InoaPS-Broker/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Configuration.FileExtensions.dll
-/home/davi/Documents/InoaPS-Broker/InoaPS-Broker/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Configuration.Json.dll
-/home/davi/Documents/InoaPS-Broker/InoaPS-Broker/bin/Debug/netcoreapp3.1/Microsoft.Extensions.FileProviders.Abstractions.dll
-/home/davi/Documents/InoaPS-Broker/InoaPS-Broker/bin/Debug/netcoreapp3.1/Microsoft.Extensions.FileProviders.Physical.dll
-/home/davi/Documents/InoaPS-Broker/InoaPS-Broker/bin/Debug/netcoreapp3.1/Microsoft.Extensions.FileSystemGlobbing.dll
-/home/davi/Documents/InoaPS-Broker/InoaPS-Broker/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Primitives.dll
-/home/davi/Documents/InoaPS-Broker/InoaPS-Broker/bin/Debug/netcoreapp3.1/System.Text.Json.dll
 /home/davi/Documents/InoaPS-Broker/InoaPS-Broker/obj/Debug/netcoreapp3.1/InoaPS-Broker.csproj.CopyComplete
 /home/davi/Documents/InoaPS-Broker/InoaPS-Broker/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
