@@ -8,17 +8,17 @@ namespace InoaPS_Broker
     class Stock
     {
         private HttpClient httpClient = new HttpClient();
-        private string requestURL = "https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/v2/get-quotes?region=BR&symbols={symbol}.SA";
-        
-        
+        private string requestURL = "https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/v2/get-quotes?region=BR&symbols={symbol}.SA";        
         private string apiKey;
+        private string symbol;
 
-        public Stock(string apiKey){
+        public Stock(string symbol, string apiKey){
             Console.WriteLine("-- New Stock Object");
 
+            this.symbol = symbol;
             this.apiKey = apiKey;
         }
-        public async Task<double> getQuote(string symbol){
+        public async Task<double> getQuote(){
             Console.WriteLine("* Getting stock quote");
 
             var request = createRequest();
@@ -36,6 +36,10 @@ namespace InoaPS_Broker
                     return -1;
                 }
             };
+        }
+
+        public string getSymbol(){
+            return symbol;
         }
 
         private HttpRequestMessage createRequest(){
