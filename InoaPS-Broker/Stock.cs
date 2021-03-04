@@ -10,23 +10,18 @@ namespace InoaPS_Broker
         private HttpClient httpClient = new HttpClient();
         private string requestURL = "https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/v2/get-quotes?region=BR&symbols={symbol}.SA";
         
-        private HttpRequestMessage request = new HttpRequestMessage
-        {
-            Method = HttpMethod.Get,
-            Headers =
-            {
-                { "x-rapidapi-host", "apidojo-yahoo-finance-v1.p.rapidapi.com" },
-            }
-        };
+        
+        private string apiKey;
 
         public Stock(string apiKey){
             Console.WriteLine("-- New Stock Object");
 
-
-            request.Headers.Add("x-rapidapi-key", apiKey);
+            this.apiKey = apiKey;
         }
         public async Task<double> getQuote(string symbol){
             Console.WriteLine("* Getting stock quote");
+
+            var request = createRequest();
 
             request.RequestUri = new Uri(requestURL.Replace("{symbol}", symbol));
             using (var response = await httpClient.SendAsync(request))
@@ -39,6 +34,18 @@ namespace InoaPS_Broker
                 }catch{
                     Console.WriteLine("Stock not found!");
                     return -1;
+                }
+            };
+        }
+
+        private HttpRequestMessage createRequest(){
+            return new HttpRequestMessage
+            {
+                Method = HttpMethod.Get,
+                Headers =
+                {
+                    { "x-rapidapi-host", "apidojo-yahoo-finance-v1.p.rapidapi.com" },
+                    {"x-rapidapi-key", apiKey}
                 }
             };
         }
