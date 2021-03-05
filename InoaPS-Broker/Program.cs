@@ -2,6 +2,7 @@
 using System.IO;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
+using System.Globalization;
 
 namespace InoaPS_Broker
 {
@@ -19,8 +20,8 @@ namespace InoaPS_Broker
                 }else{
                     string path = "./appsettings.json";
                     dynamic config = loadJson(path);
-                    double min_value = Double.Parse(args[1].Replace(",","."));
-                    double max_value = Double.Parse(args[2].Replace(",","."));
+                    double min_value = Double.Parse(args[1].Replace(",","."), CultureInfo.InvariantCulture);
+                    double max_value = Double.Parse(args[2].Replace(",","."), CultureInfo.InvariantCulture);
 
                     stock = new Stock(args[0], (string)config.API_Key);
                     sender = new Sender(config.SMTP, config.Emails);
@@ -36,8 +37,9 @@ namespace InoaPS_Broker
                         await Task.Delay(interval*60000);
                     }
                 }
-            }catch{
+            }catch(Exception err){
                 Console.WriteLine("Something went wrong! Check your parameters.");
+                Console.WriteLine(err.Message);
             }
         }
         static private Newtonsoft.Json.Linq.JObject loadJson(string path){
@@ -48,6 +50,7 @@ namespace InoaPS_Broker
 
         static async private Task<int> checkStock(double min_value, double max_value){
             Console.WriteLine("* Checking Stock");
+            Console.WriteLine(min_value.ToString(), max_value.ToString());
 
             double stockPrice = await stock.getQuote();
 
@@ -58,8 +61,8 @@ namespace InoaPS_Broker
             if(stockPrice < min_value){
                 Console.WriteLine(
                     "=> Buy - Stock below goal price! Goal: R$ {goal} | Current: R$ {current}"
-                    .Replace("{goal}", min_value.ToString())
-                    .Replace("{current}", stockPrice.ToString())
+                    .Replace("{goal}", min_value.ToString("N2", CultureInfo.InvariantCulture))
+                    .Replace("{current}", stockPrice.ToString("N2", CultureInfo.InvariantCulture))
                 );
                 if(emailSent != "buy"){
                     sender.sendAll("buy", stock.getSymbol(), min_value, stockPrice);
@@ -68,8 +71,8 @@ namespace InoaPS_Broker
             }else if(stockPrice > max_value){
                 Console.WriteLine(
                     "=> Sell - Stock above goal price! Goal: R$ {goal} | Current: R$ {current}"
-                    .Replace("{goal}", max_value.ToString())
-                    .Replace("{current}", stockPrice.ToString())
+                    .Replace("{goal}", max_value.ToString("N2", CultureInfo.InvariantCulture))
+                    .Replace("{current}", stockPrice.ToString("N2", CultureInfo.InvariantCulture))
                 );
                 if(emailSent != "sell"){
                     sender.sendAll("sell", stock.getSymbol(), max_value, stockPrice);

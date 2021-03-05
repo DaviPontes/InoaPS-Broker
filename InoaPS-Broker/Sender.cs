@@ -62,8 +62,8 @@ namespace InoaPS_Broker
                     (string)message["subject"], 
                     ((string)message["body"])
                         .Replace("{symbol}", symbol)
-                        .Replace("{goal}", goalQuote.ToString())
-                        .Replace("{current}", currentQuote.ToString())
+                        .Replace("{goal}", goalQuote.ToString("N2"))
+                        .Replace("{current}", currentQuote.ToString("N2"))
                 );
             }else{
                 Console.WriteLine("SMTP Client is null!");
