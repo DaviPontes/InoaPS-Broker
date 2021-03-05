@@ -50,7 +50,6 @@ namespace InoaPS_Broker
 
         static async private Task<int> checkStock(double min_value, double max_value){
             Console.WriteLine("* Checking Stock");
-            Console.WriteLine(min_value.ToString(), max_value.ToString());
 
             double stockPrice = await stock.getQuote();
 
